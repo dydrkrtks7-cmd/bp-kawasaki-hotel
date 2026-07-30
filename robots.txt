@@ -1,10 +1,5 @@
 User-agent: *
 Allow: /
 
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-Sitemap: https://kawasaki-hotel-guide.pbn-builder.xyz/sitemap.xml
+Sitemap: https://yeonnam-fullsalon-note.notewell.site/sitemap.xml
+Sitemap: https://yeonnam-fullsalon-note.notewell.site/sitemap-pages.xml
