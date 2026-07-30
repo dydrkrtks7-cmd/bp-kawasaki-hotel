@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yeonnam-fullsalon-note.notewell.site/sitemap.xml
-Sitemap: https://yeonnam-fullsalon-note.notewell.site/sitemap-pages.xml
+Sitemap: https://kawasaki-hotel-guide.pbn-builder.xyz/sitemap.xml
+Sitemap: https://kawasaki-hotel-guide.pbn-builder.xyz/sitemap-pages.xml
