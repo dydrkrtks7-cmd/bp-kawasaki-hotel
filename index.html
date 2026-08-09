@@ -1,274 +1,270 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kawasaki Hotel 안내: 이 빌어먹을 숙소의 모든 것 | 풀 스펙 분석</title>
-    <meta name="description" content="카와사키 호텔(Kawasaki hotel)에 대해 궁금하신가요? 단순한 정보는 지루하시겠죠. 저희가 핵심만 긁어서, 당신이 알아야 할 모든 것을 날것 그대로 제공합니다. 이 숙소, 과연 가치 있는 건지 한번 보시죠! ">
-    <meta name="keywords" content="Kawasaki hotel 안내, 카와사키 호텔, 카와사키 숙소, Kawasaki lodging, 최고의 카와사키 호텔, brutalist hotel">
-    <link rel="canonical" href="https://kawasaki-hotel-guide.pbn-builder.xyz/">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Kawasaki Hotel 안내: 이 빌어먹을 숙소의 모든 것 | 풀 스펙 분석</title>
+ <meta name="description" content="카와사키 호텔(Kawasaki hotel)에 대해 궁금하신가요? 단순한 정보는 지루하시겠죠. 저희가 핵심만 긁어서, 당신이 알아야 할 모든 것을 날것 그대로 제공합니다. 이 숙소, 과연 가치 있는 건지 한번 보시죠! ">
+ <meta name="keywords" content="Kawasaki hotel 안내, 카와사키 호텔, 카와사키 숙소, Kawasaki lodging, 최고의 카와사키 호텔, brutalist hotel">
+ <link rel="canonical" href="https://kawasaki-hotel-guide.pbn-builder.xyz/">
 
-    <!-- BPAAS 메타 태그 필수 포함 -->
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
+ <!-- SEO/OG Metadata -->
+ <meta property="og:title" content="Kawasaki Hotel 안내: 이 빌어먹을 숙소의 모든 것 | 풀 스펙 분석">
+ <meta property="og:description" content="카와사키 호텔(Kawasaki hotel)에 대해 궁금하신가요? 단순한 정보는 지루하시겠죠. 저희가 핵심만 긁어서, 당신이 알아야 할 모든 것을 날것 그대로 제공합니다. 이 숙소, 과연 가치 있는 건지 한번 보시죠!">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://kawasaki-hotel-guide.pbn-builder.xyz/">
+ <meta property="og:image" content="og-image.svg">
+ <meta property="og:site_name" content="Kawasaki Hotel 분석 (The Solver)">
 
-    <!-- SEO/OG Metadata -->
-    <meta property="og:title" content="Kawasaki Hotel 안내: 이 빌어먹을 숙소의 모든 것 | 풀 스펙 분석">
-    <meta property="og:description" content="카와사키 호텔(Kawasaki hotel)에 대해 궁금하신가요? 단순한 정보는 지루하시겠죠. 저희가 핵심만 긁어서, 당신이 알아야 할 모든 것을 날것 그대로 제공합니다. 이 숙소, 과연 가치 있는 건지 한번 보시죠!">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kawasaki-hotel-guide.pbn-builder.xyz/">
-    <meta property="og:image" content="og-image.svg">
-    <meta property="og:site_name" content="Kawasaki Hotel 분석 (The Solver)">
+ <!-- Twitter Card -->
+ <meta name="twitter:card" content="summary">
+ <meta name="twitter:title" content="Kawasaki Hotel 안내: 이 빌어먹을 숙소의 모든 것 | 풀 스펙 분석">
+ <meta name="twitter:description" content="단순한 정보는 지루하시겠죠. 저희가 핵심만 긁어서, 당신이 알아야 할 모든 것을 날것 그대로 제공합니다. 이 숙소, 과연 가치 있는 건지 한번 보시죠! ">
+ <meta name="twitter:image" content="og-image.svg">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Kawasaki Hotel 안내: 이 빌어먹을 숙소의 모든 것 | 풀 스펙 분석">
-    <meta name="twitter:description" content="단순한 정보는 지루하시겠죠. 저희가 핵심만 긁어서, 당신이 알아야 할 모든 것을 날것 그대로 제공합니다. 이 숙소, 과연 가치 있는 건지 한번 보시죠! ">
-    <meta name="twitter:image" content="og-image.svg">
+ <style>
+ /* --- Variables & Global Reset --- */
+ :root {
+ --color-primary: #000000; /* Black (Base) */
+ --color-secondary: #ffffff; /* White (Text/Contrast) */
+ --color-accent: #ff3b00; /* Neon Orange/Red (Highlight) */
+ --font-family-main: 'Impact', 'system-ui', sans-serif;
+ /* Border thickness defined by concept */
+ --border-thickness: 4px;
+ }
 
-    <style>
-        /* --- Variables & Global Reset --- */
-        :root {
-            --color-primary: #000000; /* Black (Base) */
-            --color-secondary: #ffffff; /* White (Text/Contrast) */
-            --color-accent: #ff3b00; /* Neon Orange/Red (Highlight) */
-            --font-family-main: 'Impact', 'system-ui', sans-serif;
-            /* Border thickness defined by concept */
-            --border-thickness: 4px;
-        }
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+ body {
+ background-color: var(--color-primary);
+ color: var(--color-secondary);
+ font-family: var(--font-family-main);
+ line-height: 1.35;
+ /* Airy Space */
+ padding: 72px;
+ }
 
-        body {
-            background-color: var(--color-primary);
-            color: var(--color-secondary);
-            font-family: var(--font-family-main);
-            line-height: 1.35;
-            /* Airy Space */
-            padding: 72px;
-        }
+ /* --- Typography & Elements --- */
+ h1, h2, h3 {
+ text-transform: uppercase; /* Brutalist tendency */
+ letter-spacing: -0.05em; /* Tighter spacing for impact */
+ }
+ 
+ h1 {
+ font-size: 4rem; /* Oversized Typography (> 3rem) */
+ margin-bottom: 20px;
+ line-height: 1.05;
+ }
 
-        /* --- Typography & Elements --- */
-        h1, h2, h3 {
-            text-transform: uppercase; /* Brutalist tendency */
-            letter-spacing: -0.05em; /* Tighter spacing for impact */
-        }
-        
-        h1 {
-            font-size: 4rem; /* Oversized Typography (> 3rem) */
-            margin-bottom: 20px;
-            line-height: 1.05;
-        }
+ h2 {
+ font-size: 2.8rem;
+ border-bottom: var(--border-thickness) solid var(--color-accent);
+ display: inline-block; /* To allow skewing/rotation influence */
+ padding-bottom: 10px;
+ margin-bottom: 35px;
+ }
 
-        h2 {
-            font-size: 2.8rem;
-            border-bottom: var(--border-thickness) solid var(--color-accent);
-            display: inline-block; /* To allow skewing/rotation influence */
-            padding-bottom: 10px;
-            margin-bottom: 35px;
-        }
+ h3 {
+ font-size: 1.7rem;
+ color: var(--color-accent);
+ margin-top: 20px;
+ margin-bottom: 15px;
+ }
 
-        h3 {
-            font-size: 1.7rem;
-            color: var(--color-accent);
-            margin-top: 20px;
-            margin-bottom: 15px;
-        }
+ /* --- Layout Structure & Spacing (Airy) --- */
+ header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding-bottom: 30px; /* Top gap control for header separation */
+ }
 
-        /* --- Layout Structure & Spacing (Airy) --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 30px; /* Top gap control for header separation */
-        }
+ nav ul {
+ list-style: none;
+ display: flex;
+ gap: 48px; /* Gap rule applied to nav items */
+ }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 48px; /* Gap rule applied to nav items */
-        }
+ main {
+ /* Main content container, but we aim for full bleed feel with negative margins/blocks */
+ padding: 0 calc(72px - 30px); /* Padding adjusted slightly from body padding */
+ }
 
-        main {
-            /* Main content container, but we aim for full bleed feel with negative margins/blocks */
-            padding: 0 calc(72px - 30px); /* Padding adjusted slightly from body padding */
-        }
+ section {
+ padding: 120px 0; /* Section-Gap rule applied vertically (Section padding) */
+ border-top: var(--border-thickness) dashed rgba(255, 59, 0, 0.4); /* Subtle texture break */
+ margin-bottom: -30px; /* Negative margin overlap effect between sections */
+ }
 
-        section {
-            padding: 120px 0; /* Section-Gap rule applied vertically (Section padding) */
-            border-top: var(--border-thickness) dashed rgba(255, 59, 0, 0.4); /* Subtle texture break */
-            margin-bottom: -30px; /* Negative margin overlap effect between sections */
-        }
+ /* --- Components Styling --- */
+ .hero {
+ text-align: center;
+ padding: 180px 0; /* Extra padding for hero dominance */
+ background: repeating-linear-gradient(
+ 45deg,
+ var(--color-primary) 0%,
+ var(--color-primary) 10%,
+ rgba(255, 59, 0, 0.1) 10%,
+ rgba(255, 59, 0, 0.1) 20%
+ ); /* Raw CSS Texture */
+ border: var(--border-thickness) solid var(--color-accent);
+ margin-bottom: -48px; /* Pulls hero slightly into the header area */
+ }
 
-        /* --- Components Styling --- */
-        .hero {
-            text-align: center;
-            padding: 180px 0; /* Extra padding for hero dominance */
-            background: repeating-linear-gradient(
-                45deg,
-                var(--color-primary) 0%,
-                var(--color-primary) 10%,
-                rgba(255, 59, 0, 0.1) 10%,
-                rgba(255, 59, 0, 0.1) 20%
-            ); /* Raw CSS Texture */
-            border: var(--border-thickness) solid var(--color-accent);
-            margin-bottom: -48px; /* Pulls hero slightly into the header area */
-        }
+ .hero h1 {
+ font-size: 5rem; /* Even bigger! */
+ text-shadow: 0 0 20px rgba(255, 59, 0, 0.8); /* Neon glow effect */
+ }
 
-        .hero h1 {
-            font-size: 5rem; /* Even bigger! */
-            text-shadow: 0 0 20px rgba(255, 59, 0, 0.8); /* Neon glow effect */
-        }
+ .hero p {
+ font-size: 1.3rem;
+ margin-top: 20px;
+ max-width: 700px;
+ margin-left: auto;
+ margin-right: auto;
+ color: #cccccc; /* Slightly off-white for contrast */
+ }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-top: 20px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #cccccc; /* Slightly off-white for contrast */
-        }
+ /* UGC Card Styling (Asymmetric/Rotated) */
+ .review-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 48px; /* Gap rule applied to card grouping */
+ margin-top: 60px;
+ }
 
-        /* UGC Card Styling (Asymmetric/Rotated) */
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 48px; /* Gap rule applied to card grouping */
-            margin-top: 60px;
-        }
+ .review-card {
+ background-color: rgba(255, 255, 255, 0.05); /* Slight transparency for depth */
+ border: var(--border-thickness) solid var(--color-primary);
+ padding: 35px;
+ transition: transform 0.3s ease-in-out;
+ /* Skew/Rotate effect applied to the card itself! */
+ transform: skewX(-4deg) translateY(2px); 
+ box-shadow: 8px 8px 0px rgba(255, 59, 0, 0.3); /* Heavy shadow for brutalism */
+ }
 
-        .review-card {
-            background-color: rgba(255, 255, 255, 0.05); /* Slight transparency for depth */
-            border: var(--border-thickness) solid var(--color-primary);
-            padding: 35px;
-            transition: transform 0.3s ease-in-out;
-            /* Skew/Rotate effect applied to the card itself! */
-            transform: skewX(-4deg) translateY(2px); 
-            box-shadow: 8px 8px 0px rgba(255, 59, 0, 0.3); /* Heavy shadow for brutalism */
-        }
+ .review-card:hover {
+ transform: skewX(-6deg) translateY(-4px); /* More dramatic hover effect */
+ box-shadow: 10px 10px 0px rgba(255, 59, 0, 0.5);
+ }
 
-        .review-card:hover {
-            transform: skewX(-6deg) translateY(-4px); /* More dramatic hover effect */
-            box-shadow: 10px 10px 0px rgba(255, 59, 0, 0.5);
-        }
+ .card-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 15px;
+ }
 
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
+ .nickname {
+ font-size: 1.3rem;
+ color: var(--color-accent);
+ }
 
-        .nickname {
-            font-size: 1.3rem;
-            color: var(--color-accent);
-        }
+ .date {
+ font-size: 0.9rem;
+ opacity: 0.7;
+ text-transform: uppercase;
+ }
 
-        .date {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            text-transform: uppercase;
-        }
+ .rating span {
+ color: #ffdd40; /* Yellowish hue for stars */
+ font-size: 1.3rem;
+ }
 
-        .rating span {
-            color: #ffdd40; /* Yellowish hue for stars */
-            font-size: 1.3rem;
-        }
+ .review-content {
+ font-size: 1.1rem;
+ margin-top: 15px;
+ padding-left: 20px; /* Slight indent */
+ border-left: var(--border-thickness) solid var(--color-accent); /* Accent line reinforcement */
+ }
 
-        .review-content {
-            font-size: 1.1rem;
-            margin-top: 15px;
-            padding-left: 20px; /* Slight indent */
-            border-left: var(--border-thickness) solid var(--color-accent); /* Accent line reinforcement */
-        }
-
-        /* --- Header/Nav Specific Overrides --- */
-        header {
-             /* Make header slightly more aggressive with negative margin */
-            margin-bottom: -10px; 
-        }
+ /* --- Header/Nav Specific Overrides --- */
+ header {
+ /* Make header slightly more aggressive with negative margin */
+ margin-bottom: -10px; 
+ }
 
 
-        /* --- Footer Styling --- */
-        footer {
-            text-align: center;
-            padding: 48px var(--padding); /* Use standard section padding for footer */
-            border-top: var(--border-thickness) solid var(--color-accent);
-            margin-top: -10px; /* Overlap slightly with the last main section */
-        }
+ /* --- Footer Styling --- */
+ footer {
+ text-align: center;
+ padding: 48px var(--padding); /* Use standard section padding for footer */
+ border-top: var(--border-thickness) solid var(--color-accent);
+ margin-top: -10px; /* Overlap slightly with the last main section */
+ }
 
-        .copyright {
-            font-size: 1rem;
-            opacity: 0.8;
-            letter-spacing: 0.1em;
-        }
-
-
-        /* =============================== */
-        /* --- RESPONSIVENESS (Mobile First Polish) --- */
-        /* =============================== */
-        @media (max-width: 768px) {
-            body {
-                padding: 40px 20px; /* Reduced body padding for smaller viewports */
-            }
-
-            h1 {
-                font-size: 3.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            section {
-                 padding: 80px 0; /* Slightly reduced vertical padding on mobile */
-            }
-
-            /* Header/Nav adjustment for mobile */
-            header {
-                flex-direction: column;
-                gap: 30px; /* Space between logo/title and menu stack */
-            }
-
-            nav ul {
-                justify-content: center; /* Center the navigation links */
-                flex-wrap: wrap; /* Allow wrapping if screen is very narrow */
-            }
-
-            /* Hamburger Menu Implementation (Visual cue, JS would handle toggling) */
-            .menu-icon {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                font-size: 2rem; /* Large icons */
-                cursor: pointer;
-            }
-
-            /* Hide the standard nav if we were to implement a toggle, but for pure HTML demo, just stack it. */
-        }
+ .copyright {
+ font-size: 1rem;
+ opacity: 0.8;
+ letter-spacing: 0.1em;
+ }
 
 
-    </style>
+ /* =============================== */
+ /* --- RESPONSIVENESS (Mobile First Polish) --- */
+ /* =============================== */
+ @media (max-width: 768px) {
+ body {
+ padding: 40px 20px; /* Reduced body padding for smaller viewports */
+ }
+
+ h1 {
+ font-size: 3.5rem;
+ }
+
+ h2 {
+ font-size: 2rem;
+ }
+
+ section {
+ padding: 80px 0; /* Slightly reduced vertical padding on mobile */
+ }
+
+ /* Header/Nav adjustment for mobile */
+ header {
+ flex-direction: column;
+ gap: 30px; /* Space between logo/title and menu stack */
+ }
+
+ nav ul {
+ justify-content: center; /* Center the navigation links */
+ flex-wrap: wrap; /* Allow wrapping if screen is very narrow */
+ }
+
+ /* Hamburger Menu Implementation (Visual cue, JS would handle toggling) */
+ .menu-icon {
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ font-size: 2rem; /* Large icons */
+ cursor: pointer;
+ }
+
+ /* Hide the standard nav if we were to implement a toggle, but for pure HTML demo, just stack it. */
+ }
+
+
+ </style>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
 
-    <!-- HEADER & NAVIGATION -->
-    <header>
-        <!-- Site Logo / Title Placeholder (Visual Impact) -->
-        <div class="logo" style="font-size: 1.8rem; color: var(--color-accent); border: var(--border-thickness) solid var(--color-primary); padding: 10px 20px;">
-            KAWASAKI HOTEL // SOLVER
-        </div>
+ <!-- HEADER & NAVIGATION -->
+ <header>
+ <!-- Site Logo / Title Placeholder (Visual Impact) -->
+ <div class="logo" style="font-size: 1.8rem; color: var(--color-accent); border: var(--border-thickness) solid var(--color-primary); padding: 10px 20px;">
+ KAWASAKI HOTEL // SOLVER
+ </div>
 
-        <!-- Navigation Links -->
-        <nav>
-            <ul>
+ <!-- Navigation Links -->
+ <nav>
+ <ul>
 <li>자세한 기술 명세 가이드는 <a href="https://ko.wikipedia.org/" rel="noopener noreferrer" target="_blank">공식 가이드 커뮤니티</a>를 참고하십시오.</li>
-      </ul>
-    </div>
+ </ul>
+ </div>
 </body>
 </html>
