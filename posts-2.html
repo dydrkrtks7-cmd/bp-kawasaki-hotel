@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · kawasaki-hotel</title>
+  <meta name="description" content="kawasaki-hotel에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://kawasaki-hotel-guide.pbn-builder.xyz/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* --- Variables & Global Reset --- */
+ :root {
+ --color-primary: #000000; /* Black (Base) */
+ --color-secondary: #ffffff; /* White (Text/Contrast) */
+ --color-accent: #ff3b00; /* Neon Orange/Red (Highlight) */
+ --font-family-main: 'Impact', 'system-ui', sans-serif;
+ /* Border thickness defined by concept */
+ --border-thickness: 4px;
+ }
+
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+
+ body {
+ background-color: var(--color-primary);
+ color: var(--color-secondary);
+ font-family: var(--font-family-main);
+ line-height: 1.35;
+ /* Airy Space */
+ padding: 72px;
+ }
+
+ /* --- Typography & Elements --- */
+ h1, h2, h3 {
+ text-transform: uppercase; /* Brutalist tendency */
+ letter-spacing: -0.05em; /* Tighter spacing for impact */
+ }
+ 
+ h1 {
+ font-size: 4rem; /* Oversized Typography (> 3rem) */
+ margin-bottom: 20px;
+ line-height: 1.05;
+ }
+
+ h2 {
+ font-size: 2.8rem;
+ border-bottom: var(--border-thickness) solid var(--color-accent);
+ display: inline-block; /* To allow skewing/rotation influence */
+ padding-bottom: 10px;
+ margin-bottom: 35px;
+ }
+
+ h3 {
+ font-size: 1.7rem;
+ color: var(--color-accent);
+ margin-top: 20px;
+ margin-bottom: 15px;
+ }
+
+ /* --- Layout Structure & Spacing (Airy) --- */
+ header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding-bottom: 30px; /* Top gap control for header separation */
+ }
+
+ nav ul {
+ list-style: none;
+ display: flex;
+ gap: 48px; /* Gap rule applied to nav items */
+ }
+
+ main {
+ /* Main content container, but we aim for full bleed feel with negative margins/blocks */
+ padding: 0 calc(72px - 30px); /* Padding adjusted slightly from body padding */
+ }
+
+ section {
+ padding: 120px 0; /* Section-Gap rule applied vertically (Section padding) */
+ border-top: var(--border-thickness) dashed rgba(255, 59, 0, 0.4); /* Subtle texture break */
+ margin-bottom: -30px; /* Negative margin overlap effect between sections */
+ }
+
+ /* --- Components Styling --- */
+ .hero {
+ text-align: center;
+ padding: 180px 0; /* Extra padding for hero dominance */
+ background: repeating-linear-gradient(
+ 45deg,
+ var(--color-primary) 0%,
+ var(--color-primary) 10%,
+ rgba(255, 59, 0, 0.1) 10%,
+ rgba(255, 59, 0, 0.1) 20%
+ ); /* Raw CSS Texture */
+ border: var(--border-thickness) solid var(--color-accent);
+ margin-bottom: -48px; /* Pulls hero slightly into the header area */
+ }
+
+ .hero h1 {
+ font-size: 5rem; /* Even bigger! */
+ text-shadow: 0 0 20px rgba(255, 59, 0, 0.8); /* Neon glow effect */
+ }
+
+ .hero p {
+ font-size: 1.3rem;
+ margin-top: 20px;
+ max-width: 700px;
+ margin-left: auto;
+ margin-right: auto;
+ color: #cccccc; /* Slightly off-white for contrast */
+ }
+
+ /* UGC Card Styling (Asymmetric/Rotated) */
+ .review-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 48px; /* Gap rule applied to card grouping */
+ margin-top: 60px;
+ }
+
+ .review-card {
+ background-color: rgba(255, 255, 255, 0.05); /* Slight transparency for depth */
+ border: var(--border-thickness) solid var(--color-primary);
+ padding: 35px;
+ transition: transform 0.3s ease-in-out;
+ /* Skew/Rotate effect applied to the card itself! */
+ transform: skewX(-4deg) translateY(2px); 
+ box-shadow: 8px 8px 0px rgba(255, 59, 0, 0.3); /* Heavy shadow for brutalism */
+ }
+
+ .review-card:hover {
+ transform: skewX(-6deg) translateY(-4px); /* More dramatic hover effect */
+ box-shadow: 10px 10px 0px rgba(255, 59, 0, 0.5);
+ }
+
+ .card-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 15px;
+ }
+
+ .nickname {
+ font-size: 1.3rem;
+ color: var(--color-accent);
+ }
+
+ .date {
+ font-size: 0.9rem;
+ opacity: 0.7;
+ text-transform: uppercase;
+ }
+
+ .rating span {
+ color: #ffdd40; /* Yellowish hue for stars */
+ font-size: 1.3rem;
+ }
+
+ .review-content {
+ font-size: 1.1rem;
+ margin-top: 15px;
+ padding-left: 20px; /* Slight indent */
+ border-left: var(--border-thickness) solid var(--color-accent); /* Accent line reinforcement */
+ }
+
+ /* --- Header/Nav Specific Overrides --- */
+ header {
+ /* Make header slightly more aggressive with negative margin */
+ margin-bottom: -10px; 
+ }
+
+
+ /* --- Footer Styling --- */
+ footer {
+ text-align: center;
+ padding: 48px var(--padding); /* Use standard section padding for footer */
+ border-top: var(--border-thickness) solid var(--color-accent);
+ margin-top: -10px; /* Overlap slightly with the last main section */
+ }
+
+ .copyright {
+ font-size: 1rem;
+ opacity: 0.8;
+ letter-spacing: 0.1em;
+ }
+
+
+ /* =============================== */
+ /* --- RESPONSIVENESS (Mobile First Polish) --- */
+ /* =============================== */
+ @media (max-width: 768px) {
+ body {
+ padding: 40px 20px; /* Reduced body padding for smaller viewports */
+ }
+
+ h1 {
+ font-size: 3.5rem;
+ }
+
+ h2 {
+ font-size: 2rem;
+ }
+
+ section {
+ padding: 80px 0; /* Slightly reduced vertical padding on mobile */
+ }
+
+ /* Header/Nav adjustment for mobile */
+ header {
+ flex-direction: column;
+ gap: 30px; /* Space between logo/title and menu stack */
+ }
+
+ nav ul {
+ justify-content: center; /* Center the navigation links */
+ flex-wrap: wrap; /* Allow wrapping if screen is very narrow */
+ }
+
+ /* Hamburger Menu Implementation (Visual cue, JS would handle toggling) */
+ .menu-icon {
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ font-size: 2rem; /* Large icons */
+ cursor: pointer;
+ }
+
+ /* Hide the standard nav if we were to implement a toggle, but for pure HTML demo, just stack it. */
+ }
+
+
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · kawasaki-hotel">
+  <meta property="og:description" content="kawasaki-hotel에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://kawasaki-hotel-guide.pbn-builder.xyz/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 34개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0132.html">Kawasaki hotel 안내와 마포 단체 회식용 대형 룸 노래방 가격 정보</a>
+        <p class="post-item__summary">단체 회식을 준비하면서 가장 고민되는 부분은 어디일까요? 인원이 많은 만큼 장소의 규모, 서비스의 퀄리티, 그리고 예산까지 고려해야 할 요소가 너무나 많습니다. Kawasaki hotel 안내 정보</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0133.html">Kawasaki hotel 안내에 따른 합정 셔츠룸 단골들이 뽑은 핫플 매거진과 트렌드 서포터</a>
+        <p class="post-item__summary">해외 여행 시 Kawasaki hotel 안내 자료를 살피는 과정은 낯선 도시에서 효율적인 일정을 계획하는 첫걸음입니다. 이와 유사하게 합정 지역의 유흥 문화를 탐색할 때도 정보의 출처를 확인하는 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0134.html">Kawasaki hotel 안내 참고 후 셔츠룸 선택 시 고려할 셔츠룸 사이트 가격 판단 기준</a>
+        <p class="post-item__summary">일본 여행을 계획할 때 Kawasaki hotel 안내 정보를 꼼꼼히 확인하는 것처럼, 즐거운 밤 문화를 위해 업소를 선택할 때도 기준 설정이 중요합니다. 많은 사용자가 일반적인 업체 방문과 온라인</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0353.html">Kawasaki hotel 안내와 함께 살펴보는 공덕 셔츠룸 추천정보 및 이용 팁</a>
+        <p class="post-item__summary">해외 숙박지인 Kawasaki hotel 안내 문서를 검토하다 보면 국내 도심에서 즐기는 여가 시간의 효율성에 대해 생각하게 됩니다. 특히 서울의 중심지 중 하나인 공덕 지역에서 일정을 마무리할 때</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0354.html">Kawasaki hotel 안내를 통해 알아보는 연남 유흥 추천정보와 시간대 선택</a>
+        <p class="post-item__summary">많은 분들이 해외 여행지의 Kawasaki hotel 안내 자료를 보며 국내 유흥 문화에 대해 오해를 갖곤 합니다. 흔히 연남 지역의 유흥이 단순히 야간에만 집중되어 있다고 생각하기 쉽지만, 실제로</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0355.html">Kawasaki hotel 안내를 참고하여 선택하는 마곡 가라오케 추천정보 및 인원 구성</a>
+        <p class="post-item__summary">쾌적한 환경, 합리적인 비용, 그리고 원활한 서비스라는 충족 조건을 나열하며 장소를 고르는 것은 매우 합리적인 접근입니다. Kawasaki hotel 안내 정보를 비교하는 것과 마찬가지로, 마곡 지</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0356.html">Kawasaki hotel 안내와 마곡 유흥 추천정보를 비교하며 확인하는 업체 선정 기준</a>
+        <p class="post-item__summary">과연 여러분이 지금 고려하고 있는 업체가 진정으로 신뢰할 수 있는 곳인지 스스로 질문을 던져보셨습니까? 해외 호텔인 Kawasaki hotel 안내 자료를 분석하는 것처럼, 우리 주변의 유흥 환경도</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0357.html">Kawasaki hotel 안내와 함께하는 합정 노래방 추천정보 및 이용 전략</a>
+        <p class="post-item__summary">해외 여행 시 Kawasaki hotel 안내 서비스를 활용하는 여행객들이 늘어나면서, 이들이 국내 여가 시설을 찾을 때의 기준도 덩달아 까다로워지고 있습니다. 특히 합정 지역에서 즐거운 시간을 보</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0358.html">Kawasaki hotel 안내를 통해 비교하는 연남 클럽 추천정보 선택 기준</a>
+        <p class="post-item__summary">숙박 정보인 Kawasaki hotel 안내 서비스를 이용하는 여행자들은 연남동의 밤 문화를 경험할 때도 합리적인 소비를 중요하게 생각합니다. 연남동 일대에는 다양한 스타일의 클럽이 밀집해 있어 선</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0359.html">Kawasaki hotel 안내가 알려주는 합정 셔츠룸 추천정보 실패 예방책</a>
+        <p class="post-item__summary">Kawasaki hotel 안내와 같은 실용적인 정보를 찾는 이들은 합정 지역에서의 여가 활동에서도 계획적인 접근을 선호합니다. 특히 셔츠룸과 같은 특수 업종을 이용할 때는 무작정 방문했다가 낭패를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0360.html">Kawasaki hotel 안내로 체크하는 공덕 가라오케 추천정보 위치 확인</a>
+        <p class="post-item__summary">해외 여행지의 Kawasaki hotel 안내를 찾는 것만큼이나 국내 특정 지역의 가라오케를 방문할 때도 접근성 확인은 매우 중요한 요소입니다. 공덕은 교통의 요지로 유명하지만, 정작 목적지까지 도</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0361.html">Kawasaki hotel 안내와 함께 확인하는 상수 마사지 추천정보 활용법</a>
+        <p class="post-item__summary">주말 오후 갑작스러운 피로가 몰려와 급하게 도심 속 휴식처를 찾는 이들이 많습니다. 평소 Kawasaki hotel 안내 정보를 검색하며 여행을 준비하던 습관처럼, 상수 지역에서도 자신에게 맞는 업</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0362.html">Kawasaki hotel 안내를 넘어선 망원 노래방 추천정보의 효율적 시간대</a>
+        <p class="post-item__summary">노래방은 늦은 밤에만 즐겨야 한다는 편견은 이제 지양해야 합니다. 해외에서 Kawasaki hotel 안내 정보를 찾아보는 이들이 낮 시간의 여유를 중요시하듯, 망원 지역에서도 특정 시간대를 활용하</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0363.html">Kawasaki hotel 안내와는 다른 홍대 노래방 추천정보 인원 구성별 팁</a>
+        <p class="post-item__summary">쾌적한 공간, 최신 음향 기기, 서비스 시간을 충족하는 곳을 찾기란 쉽지 않습니다. 해외 여행지에서 Kawasaki hotel 안내 정보를 확인하듯, 홍대 지역에서 노래방을 고를 때도 명확한 기준이</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>

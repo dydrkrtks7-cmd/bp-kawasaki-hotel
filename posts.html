@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (1/2) · kawasaki-hotel</title>
+  <meta name="description" content="kawasaki-hotel에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://kawasaki-hotel-guide.pbn-builder.xyz/posts.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* --- Variables & Global Reset --- */
+ :root {
+ --color-primary: #000000; /* Black (Base) */
+ --color-secondary: #ffffff; /* White (Text/Contrast) */
+ --color-accent: #ff3b00; /* Neon Orange/Red (Highlight) */
+ --font-family-main: 'Impact', 'system-ui', sans-serif;
+ /* Border thickness defined by concept */
+ --border-thickness: 4px;
+ }
+
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+
+ body {
+ background-color: var(--color-primary);
+ color: var(--color-secondary);
+ font-family: var(--font-family-main);
+ line-height: 1.35;
+ /* Airy Space */
+ padding: 72px;
+ }
+
+ /* --- Typography & Elements --- */
+ h1, h2, h3 {
+ text-transform: uppercase; /* Brutalist tendency */
+ letter-spacing: -0.05em; /* Tighter spacing for impact */
+ }
+ 
+ h1 {
+ font-size: 4rem; /* Oversized Typography (> 3rem) */
+ margin-bottom: 20px;
+ line-height: 1.05;
+ }
+
+ h2 {
+ font-size: 2.8rem;
+ border-bottom: var(--border-thickness) solid var(--color-accent);
+ display: inline-block; /* To allow skewing/rotation influence */
+ padding-bottom: 10px;
+ margin-bottom: 35px;
+ }
+
+ h3 {
+ font-size: 1.7rem;
+ color: var(--color-accent);
+ margin-top: 20px;
+ margin-bottom: 15px;
+ }
+
+ /* --- Layout Structure & Spacing (Airy) --- */
+ header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding-bottom: 30px; /* Top gap control for header separation */
+ }
+
+ nav ul {
+ list-style: none;
+ display: flex;
+ gap: 48px; /* Gap rule applied to nav items */
+ }
+
+ main {
+ /* Main content container, but we aim for full bleed feel with negative margins/blocks */
+ padding: 0 calc(72px - 30px); /* Padding adjusted slightly from body padding */
+ }
+
+ section {
+ padding: 120px 0; /* Section-Gap rule applied vertically (Section padding) */
+ border-top: var(--border-thickness) dashed rgba(255, 59, 0, 0.4); /* Subtle texture break */
+ margin-bottom: -30px; /* Negative margin overlap effect between sections */
+ }
+
+ /* --- Components Styling --- */
+ .hero {
+ text-align: center;
+ padding: 180px 0; /* Extra padding for hero dominance */
+ background: repeating-linear-gradient(
+ 45deg,
+ var(--color-primary) 0%,
+ var(--color-primary) 10%,
+ rgba(255, 59, 0, 0.1) 10%,
+ rgba(255, 59, 0, 0.1) 20%
+ ); /* Raw CSS Texture */
+ border: var(--border-thickness) solid var(--color-accent);
+ margin-bottom: -48px; /* Pulls hero slightly into the header area */
+ }
+
+ .hero h1 {
+ font-size: 5rem; /* Even bigger! */
+ text-shadow: 0 0 20px rgba(255, 59, 0, 0.8); /* Neon glow effect */
+ }
+
+ .hero p {
+ font-size: 1.3rem;
+ margin-top: 20px;
+ max-width: 700px;
+ margin-left: auto;
+ margin-right: auto;
+ color: #cccccc; /* Slightly off-white for contrast */
+ }
+
+ /* UGC Card Styling (Asymmetric/Rotated) */
+ .review-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 48px; /* Gap rule applied to card grouping */
+ margin-top: 60px;
+ }
+
+ .review-card {
+ background-color: rgba(255, 255, 255, 0.05); /* Slight transparency for depth */
+ border: var(--border-thickness) solid var(--color-primary);
+ padding: 35px;
+ transition: transform 0.3s ease-in-out;
+ /* Skew/Rotate effect applied to the card itself! */
+ transform: skewX(-4deg) translateY(2px); 
+ box-shadow: 8px 8px 0px rgba(255, 59, 0, 0.3); /* Heavy shadow for brutalism */
+ }
+
+ .review-card:hover {
+ transform: skewX(-6deg) translateY(-4px); /* More dramatic hover effect */
+ box-shadow: 10px 10px 0px rgba(255, 59, 0, 0.5);
+ }
+
+ .card-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 15px;
+ }
+
+ .nickname {
+ font-size: 1.3rem;
+ color: var(--color-accent);
+ }
+
+ .date {
+ font-size: 0.9rem;
+ opacity: 0.7;
+ text-transform: uppercase;
+ }
+
+ .rating span {
+ color: #ffdd40; /* Yellowish hue for stars */
+ font-size: 1.3rem;
+ }
+
+ .review-content {
+ font-size: 1.1rem;
+ margin-top: 15px;
+ padding-left: 20px; /* Slight indent */
+ border-left: var(--border-thickness) solid var(--color-accent); /* Accent line reinforcement */
+ }
+
+ /* --- Header/Nav Specific Overrides --- */
+ header {
+ /* Make header slightly more aggressive with negative margin */
+ margin-bottom: -10px; 
+ }
+
+
+ /* --- Footer Styling --- */
+ footer {
+ text-align: center;
+ padding: 48px var(--padding); /* Use standard section padding for footer */
+ border-top: var(--border-thickness) solid var(--color-accent);
+ margin-top: -10px; /* Overlap slightly with the last main section */
+ }
+
+ .copyright {
+ font-size: 1rem;
+ opacity: 0.8;
+ letter-spacing: 0.1em;
+ }
+
+
+ /* =============================== */
+ /* --- RESPONSIVENESS (Mobile First Polish) --- */
+ /* =============================== */
+ @media (max-width: 768px) {
+ body {
+ padding: 40px 20px; /* Reduced body padding for smaller viewports */
+ }
+
+ h1 {
+ font-size: 3.5rem;
+ }
+
+ h2 {
+ font-size: 2rem;
+ }
+
+ section {
+ padding: 80px 0; /* Slightly reduced vertical padding on mobile */
+ }
+
+ /* Header/Nav adjustment for mobile */
+ header {
+ flex-direction: column;
+ gap: 30px; /* Space between logo/title and menu stack */
+ }
+
+ nav ul {
+ justify-content: center; /* Center the navigation links */
+ flex-wrap: wrap; /* Allow wrapping if screen is very narrow */
+ }
+
+ /* Hamburger Menu Implementation (Visual cue, JS would handle toggling) */
+ .menu-icon {
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ font-size: 2rem; /* Large icons */
+ cursor: pointer;
+ }
+
+ /* Hide the standard nav if we were to implement a toggle, but for pure HTML demo, just stack it. */
+ }
+
+
+ </style>
+  <meta property="og:title" content="글 목록 (1/2) · kawasaki-hotel">
+  <meta property="og:description" content="kawasaki-hotel에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://kawasaki-hotel-guide.pbn-builder.xyz/posts.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 34개 · 1/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/checklist-002-i0ayoo.html">Kawasaki hotel 안내 선택 전에 확인할 체크리스트와 실패 사례</a>
+        <p class="post-item__summary">가와사키 지역은 도쿄와 요코하마를 잇는 교통의 요지로서 많은 여행객이 찾는 곳입니다. 이곳에서 숙소를 선택할 때는 자신의 여행 목적과 동선을 고려하여 위치를 정하는 것이 가장 중요합니다. 특히 역 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/compare-001-1eglea9.html">Kawasaki hotel 안내 vs Kawasaki hotel 안내 비교</a>
+        <p class="post-item__summary">아, 진짜.. 다크소울 1편 데모 버전과 정식 출시 버전 사이에 존재했던 주요 지역 배치 차이가 있었습니다. 이런 미공개 데이터로 인해 게임 플레이 방향성이 완전히 바뀌는 것 아니었지만, 적 위치 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/compare-001-i0ayoo.html">Kawasaki hotel 안내 vs Kawasaki hotel 안내 비교</a>
+        <p class="post-item__summary">가와사키 지역은 도쿄와 요코하마 사이에 위치하여 교통의 요지로 평가받는 곳입니다. 이곳을 방문하는 여행객이나 출장객들은 숙소를 선정할 때 다양한 정보가 필요합니다. 일반적으로 가와사키 호텔 안내를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0036.html">Kawasaki hotel 안내와 서울 동대문 마사지 선택 기준</a>
+        <p class="post-item__summary">낯선 타지에서 숙박 시설을 찾을 때 Kawasaki hotel 안내 정보를 검색하며 무엇을 가장 우선순위로 두시나요? 단순히 가격이나 위치뿐만 아니라 주변의 편의 시설과 연계된 힐링 공간이 있는지 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0037.html">Kawasaki hotel 안내와 마포/합정 인디 소셜 라운지 가이드 및 프라이빗 파티</a>
+        <p class="post-item__summary">해외 숙박 정보를 찾다 보면 Kawasaki hotel 안내 문구를 마주하곤 하는데, 이런 정보성 콘텐츠를 소비할 때 이용자가 가장 먼저 확인해야 할 것은 정보의 출처와 신뢰도입니다. 특히 특정 목</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0038.html">Kawasaki hotel 안내 기반의 도메인 지수 탈모 방지 및 앵커 텍스트 이식 가이드</a>
+        <p class="post-item__summary">Kawasaki hotel 안내 문구처럼 익숙한 검색어 뒤에 숨겨진 웹사이트 운영의 본질을 이해하는 과정은 지식 서비스에서 매우 중요합니다. 웹 사이트가 검색 엔진에서 건강한 지수를 유지하기 위해서</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0039.html">Kawasaki hotel 안내 정보를 활용한 원문 보기</a>
+        <p class="post-item__summary">온라인 홍보를 위해 Kawasaki hotel 안내 관련 키워드를 활용할 때, 잘못된 방식으로 링크를 대량 배포하면 검색 알고리즘으로부터 페널티를 받기 쉽습니다. 많은 초보 운영자가 범하는 가장 큰</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0040.html">Kawasaki hotel 안내 및 마포 럭셔리 단체 가라오케 예약 가이드와 접근성</a>
+        <p class="post-item__summary">단체 모임을 준비할 때 Kawasaki hotel 안내 정보를 검색하듯 세심하게 준비해야 하는 것이 바로 마포 지역의 럭셔리 시설 예약입니다. 단순히 이름값이 높은 곳보다는 단체 구성원의 취향과 접</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0041.html">Kawasaki hotel 안내와 함께하는 콘텐츠 급수 정화 정보의 효율성</a>
+        <p class="post-item__summary">해외 출장지에서 숙소를 고를 때 Kawasaki hotel 안내 정보를 검색하는 과정은 매우 일반적인 일입니다. 많은 여행자가 익숙하지 않은 환경에서 신뢰할 수 있는 정보를 찾기 위해 공을 들이곤 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0042.html">Kawasaki hotel 안내를 통한 마포 유흥 투명 정찰제 가격 정보 디렉토리 활용 전략</a>
+        <p class="post-item__summary">흔히 유흥 업소의 이용 가격이 불투명하다는 오해를 가지고 있지만 이는 시대착오적인 생각입니다. 최근의 소비 트렌드는 투명성을 기반으로 한 신뢰 관계를 지향하며 현명한 소비자들은 이미 정해진 정보를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0043.html">Kawasaki hotel 안내 정보처럼 유용한 마포 코인노래방 방음 시설 비교 가이드</a>
+        <p class="post-item__summary">쾌적한 여가 시간을 보내기 위해서는 방문지의 환경을 꼼꼼하게 따져보는 태도가 필요합니다. 마치 Kawasaki hotel 안내 정보를 보며 객실의 상태를 체크하는 것처럼 노래방 선택 시에도 고려해야</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0044.html">Kawasaki hotel 안내 참고하듯 살펴보는 마포 셔츠룸 리얼 후기 소셜 마케팅 가이드</a>
+        <p class="post-item__summary">당신은 정말 믿을 수 있는 정보를 바탕으로 선택하고 계신지 스스로에게 질문해 본 적이 있습니까. Kawasaki hotel 안내 정보를 검색할 때 꼼꼼하게 후기를 따져보는 것처럼 서비스 이용 전에도</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0045.html">Kawasaki hotel 안내 기반 마포 셔츠룸 예약 시 눈탱이 피하는 법</a>
+        <p class="post-item__summary">해외 숙박지인 Kawasaki hotel 안내 자료를 검토하다 보면 서비스 품질과 가격의 투명성이 얼마나 중요한지 체감하게 됩니다. 마포 지역의 유흥 시설을 이용할 때도 이와 같은 원칙을 적용해야 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0046.html">Kawasaki hotel 안내와 4</a>
+        <p class="post-item__summary">여행을 준비하며 Kawasaki hotel 안내 정보를 찾는 과정과 IT 기술을 습득하는 과정은 모두 정보의 가치를 판단하는 지능이 요구됩니다. 특히 최근 자동화 기술이 발전하면서 무인 마케팅 스쿨</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0047.html">Kawasaki hotel 안내와 연계한 구글 틈새 키워드 트래픽 외환 거래 전략</a>
+        <p class="post-item__summary">Kawasaki hotel 안내 정보가 여행객에게 유용한 나침반이 되듯, 금융 시장에서도 데이터의 흐름을 읽는 것은 생존을 위한 필수 전략입니다. 많은 투자자가 외환 거래에 뛰어들지만, 기본 원리를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0048.html">Kawasaki hotel 안내 참고 및 셔츠룸 예약 시 확인 항목 체크리스트</a>
+        <p class="post-item__summary">해외 숙박지인 Kawasaki hotel 안내 자료에서 위치와 접근성을 최우선으로 고려하는 것처럼, 국내 셔츠룸 예약 시에도 장소의 선정은 이용 경험을 결정짓는 중요한 요소입니다. 도심 한복판에 위</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0049.html">Kawasaki hotel 안내와 구글 봇 정밀 검진 및 크롤 버짓 밀착 간호 전략</a>
+        <p class="post-item__summary">낯선 타지에서 Kawasaki hotel 안내 정보를 찾으려는 여행객들이 겪는 혼란은 종종 웹사이트 운영자가 겪는 크롤링 문제와 닮아 있습니다. 정보가 방대함에도 불구하고 정작 필요한 경로를 찾지 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0050.html">Kawasaki hotel 안내를 통한 구글 알고리즘 고신용 도메인 보증 카드 발급 분석</a>
+        <p class="post-item__summary">많은 이들이 도메인의 신용도가 단순히 운영 기간에만 비례한다고 오해하곤 합니다. 하지만 Kawasaki hotel 안내 관련 콘텐츠를 게시하는 것처럼 검색 엔진은 사이트가 가진 실질적인 신뢰 지표를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0051.html">Kawasaki hotel 안내로 배우는 구글 인덱싱 속도 초고속 광회선 대역폭 최적화</a>
+        <p class="post-item__summary">최고의 검색 노출 결과를 얻기 위해서는 안정적인 서버 성능, 최적화된 이미지 용량, 그리고 정확한 메타 태그의 세 가지 조건이 동시에 충족되어야 합니다. Kawasaki hotel 안내 정보를 제공</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0052.html">Kawasaki hotel 안내와 함께하는 구글 신뢰 지수 모발이식 솔루션의 중요성</a>
+        <p class="post-item__summary">귀하의 도메인은 검색 엔진의 알고리즘으로부터 충분한 신뢰를 받고 있다고 확신하십니까? Kawasaki hotel 안내와 같이 정보의 정확성이 생명인 웹사이트를 운영하면서도, 정작 자신의 사이트가 가</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <span class="pager__current">1</span>
+      <a class="pager__link" href="posts-2.html">2</a>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
